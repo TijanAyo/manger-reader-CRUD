@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id     String  @id @unique @default(uuid())
+  name   String
+  bio    String
+  mangas Manga[]
+}
+
+model Manga {
+  id          String   @id @unique @default(uuid())
+  title       String
+  description String
+  content     String
+  published   Boolean  @default(false)
+  pages       Int
+  language    Language @default(English)
+  author      Author   @relation(fields: [authorId], references: [id])
+  authorId    String
+  created_on  DateTime @default(now())
+  updated_on  DateTime @updatedAt()
+}
+
+enum Language {
+  English
+  French
+  Japanese
+}

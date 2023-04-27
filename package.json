@@ -1,0 +1,23 @@
+{
+  "name": "manga-reader-example",
+  "version": "1.0.0",
+  "description": "Basic implementation of API Rate Limiting",
+  "main": "index.js",
+  "type": "module",
+  "author": "Tijani Ayomide",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "prisma": "^4.13.0"
+  }
+}
